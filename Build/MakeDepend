@@ -1,0 +1,105 @@
+./Build/coupler.o: cppdefs.h sandy_ww3_wrf.h ../../InWave/Include/inwave.h
+./Build/coupler.o: globaldefs.h
+./Build/coupler.f90: cppdefs.h sandy_ww3_wrf.h ../../InWave/Include/inwave.h
+./Build/coupler.f90: globaldefs.h
+
+./Build/esmf_roms.o: cppdefs.h sandy_ww3_wrf.h ../../InWave/Include/inwave.h
+./Build/esmf_roms.o: globaldefs.h
+./Build/esmf_roms.f90: cppdefs.h sandy_ww3_wrf.h ../../InWave/Include/inwave.h
+./Build/esmf_roms.f90: globaldefs.h
+
+./Build/get_numswan_grids.o: cppdefs.h sandy_ww3_wrf.h
+./Build/get_numswan_grids.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/get_numswan_grids.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/get_numswan_grids.f90: ../../InWave/Include/inwave.h globaldefs.h
+
+./Build/get_sparse_matrix.o: cppdefs.h sandy_ww3_wrf.h
+./Build/get_sparse_matrix.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/get_sparse_matrix.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/get_sparse_matrix.f90: ../../InWave/Include/inwave.h globaldefs.h
+./Build/get_sparse_matrix.o: ./Build/mod_coupler_iounits.o
+./Build/get_sparse_matrix.o: ./Build/get_sparse_matrix.f90
+
+./Build/get_wrf_moving_grids.o: cppdefs.h sandy_ww3_wrf.h
+./Build/get_wrf_moving_grids.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/get_wrf_moving_grids.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/get_wrf_moving_grids.f90: ../../InWave/Include/inwave.h globaldefs.h
+./Build/get_wrf_moving_grids.o: ./Build/mod_coupler_iounits.o
+./Build/get_wrf_moving_grids.o: ./Build/get_wrf_moving_grids.f90
+
+./Build/master.o: esmf_driver.h ocean.h mct_driver.h waves.h cppdefs.h
+./Build/master.o: sandy_ww3_wrf.h ../../InWave/Include/inwave.h globaldefs.h
+./Build/master.f90: esmf_driver.h ocean.h mct_driver.h waves.h cppdefs.h
+./Build/master.f90: sandy_ww3_wrf.h ../../InWave/Include/inwave.h globaldefs.h
+./Build/master.o: ./Build/mod_coupler_iounits.o ./Build/ocean_coupler.o
+./Build/master.o: ./Build/master.f90
+
+./Build/mct_coupler_utils.o: cppdefs.h sandy_ww3_wrf.h
+./Build/mct_coupler_utils.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/mct_coupler_utils.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/mct_coupler_utils.f90: ../../InWave/Include/inwave.h globaldefs.h
+
+./Build/mod_coupler_iounits.o: cppdefs.h sandy_ww3_wrf.h
+./Build/mod_coupler_iounits.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/mod_coupler_iounits.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/mod_coupler_iounits.f90: ../../InWave/Include/inwave.h globaldefs.h
+
+./Build/ocean_control.o: cppdefs.h sandy_ww3_wrf.h
+./Build/ocean_control.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/ocean_control.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/ocean_control.f90: ../../InWave/Include/inwave.h globaldefs.h
+
+./Build/ocean_coupler.o: mct_roms_hydro.h set_bounds.h tile.h mct_roms_wrf.h
+./Build/ocean_coupler.o: mct_roms_refdif.h mct_roms_ww3.h mct_roms_swan.h
+./Build/ocean_coupler.o: cppdefs.h sandy_ww3_wrf.h
+./Build/ocean_coupler.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/ocean_coupler.f90: mct_roms_hydro.h set_bounds.h tile.h mct_roms_wrf.h
+./Build/ocean_coupler.f90: mct_roms_refdif.h mct_roms_ww3.h mct_roms_swan.h
+./Build/ocean_coupler.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/ocean_coupler.f90: ../../InWave/Include/inwave.h globaldefs.h
+./Build/ocean_coupler.o: ./Build/mod_coupler_iounits.o
+./Build/ocean_coupler.o: ./Build/ocean_coupler.f90
+
+./Build/propagator.o: cppdefs.h sandy_ww3_wrf.h ../../InWave/Include/inwave.h
+./Build/propagator.o: globaldefs.h
+./Build/propagator.f90: cppdefs.h sandy_ww3_wrf.h ../../InWave/Include/inwave.h
+./Build/propagator.f90: globaldefs.h
+
+./Build/read_coawst_par.o: cppdefs.h sandy_ww3_wrf.h
+./Build/read_coawst_par.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/read_coawst_par.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/read_coawst_par.f90: ../../InWave/Include/inwave.h globaldefs.h
+./Build/read_coawst_par.o: ./Build/mct_coupler_utils.o
+./Build/read_coawst_par.o: ./Build/mod_coupler_iounits.o ./Build/ww3_iounits.o
+./Build/read_coawst_par.o: ./Build/read_coawst_par.f90
+
+./Build/read_model_inputs.o: cppdefs.h sandy_ww3_wrf.h
+./Build/read_model_inputs.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/read_model_inputs.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/read_model_inputs.f90: ../../InWave/Include/inwave.h globaldefs.h
+./Build/read_model_inputs.o: ./Build/mod_coupler_iounits.o
+./Build/read_model_inputs.o: ./Build/ww3_iounits.o
+./Build/read_model_inputs.o: ./Build/read_model_inputs.f90
+
+./Build/roms_export.o: set_bounds.h cppdefs.h sandy_ww3_wrf.h
+./Build/roms_export.o: ../../InWave/Include/inwave.h globaldefs.h
+./Build/roms_export.f90: set_bounds.h cppdefs.h sandy_ww3_wrf.h
+./Build/roms_export.f90: ../../InWave/Include/inwave.h globaldefs.h
+
+./Build/roms_import.o: cppdefs.h sandy_ww3_wrf.h ../../InWave/Include/inwave.h
+./Build/roms_import.o: globaldefs.h
+./Build/roms_import.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/roms_import.f90: ../../InWave/Include/inwave.h globaldefs.h
+
+./Build/ww3_iounits.o: cppdefs.h sandy_ww3_wrf.h ../../InWave/Include/inwave.h
+./Build/ww3_iounits.o: globaldefs.h
+./Build/ww3_iounits.f90: cppdefs.h sandy_ww3_wrf.h
+./Build/ww3_iounits.f90: ../../InWave/Include/inwave.h globaldefs.h
+
+./Build/coupler_mod.mod: ./Build/coupler.o
+./Build/esmf_roms_mod.mod: ./Build/esmf_roms.o
+./Build/mct_coupler_utils_mod.mod: ./Build/mct_coupler_utils.o
+./Build/ocean_coupler_mod.mod: ./Build/ocean_coupler.o
+./Build/propagator_mod.mod: ./Build/propagator.o
+./Build/roms_export_mod.mod: ./Build/roms_export.o
+./Build/roms_import_mod.mod: ./Build/roms_import.o

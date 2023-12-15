@@ -1,0 +1,7 @@
+ifort: command line warning #10006: ignoring unknown option '-f90=ifort'
+w3tidemd.F90(784): remark #8291: Recommended relationship between field width 'W' and the number of fractional digits 'D' in this edit descriptor is 'W>=D+7'.
+        READ(KR1,'(4X,A5,E16.10,i5)')TIDE_KONAN(K),TIDE_SIGAN(K),TIDE_NINF(k)
+--------------------------^
+w3tidemd.F90(788): remark #8291: Recommended relationship between field width 'W' and the number of fractional digits 'D' in this edit descriptor is 'W>=D+7'.
+          read(kr1,'(4X,A5,E16.10,2F10.3)') TIDE_KONIN(K,k2),TIDE_SIGIN(K,k2),TIDE_R(K,k2),TIDE_ZETA(K,k2)
+----------------------------^

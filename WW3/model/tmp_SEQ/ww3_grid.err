@@ -1,0 +1,4 @@
+ifort: command line warning #10006: ignoring unknown option '-f90=ifort'
+ww3_grid.F90(3419): remark #8291: Recommended relationship between field width 'W' and the number of fractional digits 'D' in this edit descriptor is 'W>=D+7'.
+               ', SDSCUMP =', F3.1,', SDSNUW =', E8.3,', '/,     &
+--------------------------------------------------^

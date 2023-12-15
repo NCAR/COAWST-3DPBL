@@ -1,0 +1,113 @@
+#
+# Compiling WRF and WW3
+#
+module load mkl/2020.1.217
+module load netcdf-c/4.7.4/intel 
+module load netcdf-f/4.5.3/intel-serial   
+module load hdf5/1.10.6/intel-impi
+module load pnetcdf/1.12.1/intel-impi
+module load ncl/6.6.2
+
+export NETCDF=/nopt/nrel/apps/netcdf-f/4.5.3-intel
+export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+export NETCDF_classic=1
+export NETCDF_INCDIR=/nopt/nrel/apps/netcdf-f/4.5.3-intel/include 
+export NETCDF_LIBDIR=/nopt/nrel/apps/netcdf-f/4.5.3-intel/lib 
+export NETCDF_CONFIG=/nopt/nrel/apps/netcdf-f/4.5.3-intel/bin/nf-config 
+
+
+1. Modify ./Lib/MCT
+
+cd Lib/MCT
+mkdir lib
+mkdir include
+./configure
+
+- edit Makefile.conf
+- set LIBDIR and INCLUDEDIR to */Lib/MCT/lib and */Lib/MCT/include
+- change fortran compilers to ifort and icc
+
+# INCLUDE PATHS (PREPEND INCLUDE FLAGS -I, -M or -p)
+INCPATH         =  -I/nopt/nrel/apps/compilers/intel/2020.1.217/impi/2019.7.217/intel64/include
+
+# COMPILER AND OS DEFINE FLAGS
+DEFS            = -DSYSLINUX -DCPRINTEL
+
+make 
+make install
+
+----
+
+2. Modify coawst.bash
+
+- set coawst application name, notice it should be capitalized
+export COAWST_APPLICATION=SANDY_WW3_WRF
+
+export MY_ROOT_DIR=/projects/oracle/branko/COAWST
+
+export MCT_LIBDIR=${MY_ROOT_DIR}/Lib/MCT/lib
+export MCT_INCDIR=${MY_ROOT_DIR}/Lib/MCT/include
+
+- modify the following line, by removing the "slash"
+#export   MY_ROMS_SRC=${MY_ROOT_DIR}/
+export   MY_ROMS_SRC=${MY_ROOT_DIR}
+
+export MY_HEADER_DIR=${MY_PROJECT_DIR}/Projects/<project name>
+export MY_ANALYTICAL_DIR=${MY_PROJECT_DIR}/Projects/<project name>
+
+export WWATCH3_NETCDF=NC4
+
+- set WW3_SWITCH_FILE to appropriate switch file WW3/model/bin directory
+export WW3_SWITCH_FILE=switch_sandy_WW3_WRF
+
+- have prepend path under openmpi be blank so default mpif90 path is used for
+  ifort alogn with:
+which_MPI=openmpi
+
+- turn off USE_LARGE and USE_NETCDF4 by setting
+
+export USE_LARGE=
+export USE_NETCDF4=
+
+(Brian's note:  I needed to remove compiling WW3 util ww3_prtide from 
+WW3/model/bin/make_MPI to get WW3 to compile.)
+
+- run coawst.bash
+% ./coawst.bash
+
+- choose options 15 and 1 for WRF compilation
+
+
+----
+
+- If compiling WW3 for the first time then choose:
+   - update WWATCH3_DIR (u)
+   - update settings (y)
+   - printer <enter>
+   - FORTRAN compiler
+   - add icc for C compiler
+   - scratch space <enter>
+   - source code (save)
+   - listings (save)
+   - new setting (y) [y - means OK]
+
+-----
+
+At this point the compilation will likely fail,
+however, as Brian mentioned what is missing is just a few
+modifications to the last linking step. 
+That last step is included in the file:
+
+goodcompile.ww3wrf.command
+
+In this file -lnetcdff is added and the order of linked libraries is
+modified in particular 
+
+So, now all that is left to be done is to execute:
+
+% ./goodcompile.ww3wrf.command
+
+
+When successful, will get executable ‘coawstM’, along with real.exe, etc.
+
+Notice that wrf.exe is not created, instead libwrflib.a is created.
