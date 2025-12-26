@@ -1,0 +1,2 @@
+ifort: command line warning #10121: overriding '-xhost' with '-xhost'
+ifort: command line warning #10006: ignoring unknown option '-f90=ifort'

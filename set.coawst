@@ -1,0 +1,15 @@
+module purge
+module load intel-mpi/2020.1.217
+module load mkl/2020.1.217
+module load netcdf-c/4.7.4/intel
+module load netcdf-f/4.5.3/intel-serial
+module load hdf5/1.10.6/intel-impi
+module load pnetcdf/1.12.1/intel-impi
+module load ncl/6.6.2
+module load ncview/2.1.8
+export NETCDF=/nopt/nrel/apps/netcdf-f/4.5.3-intel
+export WRFIO_NCD_LARGE_FILE_SUPPORT=1
+export NETCDF_classic=1
+export NETCDF_INCDIR=/nopt/nrel/apps/netcdf-f/4.5.3-intel/include
+export NETCDF_LIBDIR=/nopt/nrel/apps/netcdf-f/4.5.3-intel/lib
+export NETCDF_CONFIG=/nopt/nrel/apps/netcdf-f/4.5.3-intel/bin/nf-config

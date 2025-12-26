@@ -1,0 +1,16 @@
+cd ./Build; /nopt/nrel/apps/compilers/intel/2020.1.217/impi/2019.7.217/intel64/bin/mpif90 -c -fp-model precise -f90=ifort -I/projects/oracle/erichend/COAWST-BRANKO-3DPBL/WW3/model/mod_MPI -I/projects/oracle/erichend/COAWST-BRANKO-3DPBL/Lib/MCT/include -I/projects/oracle/erichend/COAWST-BRANKO-3DPBL/WRF/main -I/projects/oracle/erichend/COAWST-BRANKO-3DPBL/WRF/external/esmf_time_f90 -I/projects/oracle/erichend/COAWST-BRANKO-3DPBL/WRF/frame -I/projects/oracle/erichend/COAWST-BRANKO-3DPBL/WRF/share master.f90
+master.f90(23): error #7002: Error in opening the compiled module file.  Check INCLUDE paths.   [MODULE_WRF_TOP]
+      USE module_wrf_top, ONLY : wrf_init
+----------^
+master.f90(23): error #6580: Name in only-list does not exist or is not accessible.   [WRF_INIT]
+      USE module_wrf_top, ONLY : wrf_init
+---------------------------------^
+master.f90(24): error #6580: Name in only-list does not exist or is not accessible.   [WRF_RUN]
+      USE module_wrf_top, ONLY : wrf_run
+---------------------------------^
+master.f90(25): error #6580: Name in only-list does not exist or is not accessible.   [WRF_FINALIZE]
+      USE module_wrf_top, ONLY : wrf_finalize
+---------------------------------^
+compilation aborted for master.f90 (code 1)
+make: *** [Build/master.o] Error 1
+

@@ -1,0 +1,109 @@
+
+# COMPILER, LIBRARY, AND MACHINE MAKE VARIABLES
+
+# FORTRAN COMPILER VARIABLES #
+
+# FORTRAN COMPILER COMMAND
+#FC		= /nopt/nrel/apps/compilers/08-23/spack/opt/spack/linux-rhel8-icelake/gcc-8.4.0/gcc-13.1.0-hiekcz5owm5hgiw7xnwd55reo3wfxwmp/bin/gfortran
+#FC              = /nopt/nrel/apps/compilers/08-23/spack/opt/spack/linux-rhel8-icelake/gcc-8.4.0/intel-oneapi-compilers-2023.2.0-cqpelkddr7kvjjmbqgs5ypz27m2bgqgt/compiler/2023.2.0/linux/bin/ifx
+#FC               = /nopt/nrel/apps/compilers/08-23/spack/opt/spack/linux-rhel8-icelake/gcc-8.4.0/intel-oneapi-compilers-2023.2.0-cqpelkddr7kvjjmbqgs5ypz27m2bgqgt/compiler/2023.2.0/linux/bin/intel64/ifort
+FC               = /nopt/nrel/apps/cpu_stack/compilers/02-24/spack/opt/spack/linux-rhel8-sapphirerapids/gcc-12.2.1/intel-oneapi-compilers-2023.2.0-hwdq5hei2obxznfjhtlav4mi5h5jd4zw/compiler/2023.2.0/linux/bin/intel64/ifort
+
+# FORTRAN AND FORTRAN90 COMPILER FLAGS
+FCFLAGS		= -O2  
+
+# FORTRAN90 ONLY COMPILER FLAGS 
+F90FLAGS        = #-w -ftz -assume byterecl
+
+# FORTRAN COMPILE FLAG FOR AUTOPROMOTION 
+# OF NATIVE REAL TO 8 BIT REAL
+REAL8           = #-r8
+
+# FORTRAN COMPILE FLAG FOR CHANGING BYTE ORDERING
+ENDIAN          = -convert big_endian
+
+# INCLUDE FLAG FOR LOCATING MODULES (-I, -M, or -p)
+INCFLAG         = -I
+
+# INCLUDE PATHS (PREPEND INCLUDE FLAGS -I, -M or -p)
+INCPATH         = -I/nopt/nrel/apps/compilers/08-23/spack/opt/spack/linux-rhel8-icelake/gcc-8.4.0/intel-oneapi-compilers-2023.2.0-cqpelkddr7kvjjmbqgs5ypz27m2bgqgt/compiler/2023.2.0/linux/include/ 
+
+# MPI LIBRARIES (USUALLY -lmpi)
+MPILIBS         = 
+
+# PREPROCESSOR VARIABLES #
+
+# COMPILER AND OS DEFINE FLAGS
+DEFS            = -DSYSLINUX -DCPRINTEL
+
+# SET A SEPARATE PREPROCESSOR COMMAND IF FORTRAN COMPILER 
+# DOES NOT HANDLE PREPROCESSING OF SOURCE FILES
+
+# FORTRAN PREPROCESSOR COMMAND
+FPP		= cpp
+
+# FOTRAN PREPROCESSOR FLAGS
+FPPFLAGS	= -P -C -N -traditional
+
+# C COMPILER VARIABLES #
+
+# C COMPILER
+#CC		= /nopt/nrel/apps/compilers/08-23/spack/opt/spack/linux-rhel8-icelake/gcc-8.4.0/gcc-13.1.0-hiekcz5owm5hgiw7xnwd55reo3wfxwmp/bin/gcc
+#CC              = /nopt/nrel/apps/compilers/08-23/spack/opt/spack/linux-rhel8-icelake/gcc-8.4.0/intel-oneapi-compilers-2023.2.0-cqpelkddr7kvjjmbqgs5ypz27m2bgqgt/compiler/2023.2.0/linux/bin/icx
+#CC               = /nopt/nrel/apps/compilers/08-23/spack/opt/spack/linux-rhel8-icelake/gcc-8.4.0/intel-oneapi-compilers-2023.2.0-cqpelkddr7kvjjmbqgs5ypz27m2bgqgt/compiler/2023.2.0/linux/bin/intel64/icc
+CC               = /nopt/nrel/apps/cpu_stack/compilers/02-24/spack/opt/spack/linux-rhel8-sapphirerapids/gcc-12.2.1/intel-oneapi-compilers-2023.2.0-hwdq5hei2obxznfjhtlav4mi5h5jd4zw/compiler/2023.2.0/linux/bin/intel64/icc
+
+# C COMPILER FLAGS - APPEND CFLAGS
+ALLCFLAGS       = -DFORTRAN_UNDERSCORE_ -DSYSLINUX -DCPRINTEL -O 
+
+# LIBRARY SPECIFIC VARIABLES #
+
+# USED BY MCT BABEL BINDINGS
+COMPILER_ROOT = 
+BABELROOT     = 
+PYTHON        = 
+PYTHONOPTS    = 
+
+# USED BY MPI-SERIAL LIBRARY
+
+# SIZE OF FORTRAN REAL AND DOUBLE
+FORT_SIZE = 
+
+# SOURCE FILE TARGETS #
+
+# ENABLE RULE FOR PROCESSING C SOURCE FILES
+# BY SETTING TO .c.o
+CRULE           = .c.o
+
+# ENABLE RULE FOR PROCESSING F90 SOURCE FILES 
+# BY SETTING TO .F90.o AND DISABLING F90RULECPP
+F90RULE         = .F90.o
+
+# ENABLE RULE FOR PROCESSING F90 SOURCE FILES
+# WITH SEPARATE PREPROCESSING INVOCATION
+# BY SETTING TO .F90.o AND DISABLING F90RULE
+F90RULECPP      = .F90RULECPP
+
+# INSTALLATION VARIABLES #
+
+# INSTALL COMMANDS
+INSTALL         = /projects/oracle/erichend/COAWST-3DPBL-2024/Lib/MCT/install-sh -c
+MKINSTALLDIRS   = /projects/oracle/erichend/COAWST-3DPBL-2024/Lib/MCT/mkinstalldirs
+
+# INSTALLATION DIRECTORIES
+abs_top_builddir= /projects/oracle/erichend/COAWST-3DPBL-2024/Lib/MCT
+MCTPATH         = /projects/oracle/erichend/COAWST-3DPBL-2024/Lib/MCT/mct
+MPEUPATH        = /projects/oracle/erichend/COAWST-3DPBL-2024/Lib/MCT/mpeu
+EXAMPLEPATH     = /projects/oracle/erichend/COAWST-3DPBL-2024/Lib/MCT/examples
+MPISERPATH      = 
+libdir          = /projects/oracle/erichend/COAWST-3DPBL-2024/Lib/MCT/lib
+includedir      = /projects/oracle/erichend/COAWST-3DPBL-2024/Lib/MCT/include
+
+# OTHER COMMANDS #
+AR		= ar cq
+RM		= rm -f
+
+
+
+
+
