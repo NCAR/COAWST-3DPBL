@@ -1,5 +1,7 @@
-# This is compile script for NLR Kestrel HPC
-# It may be useful for helping to compile on other systems
+# These are general compilation instructions for NLR Kestrel HPC.
+# It may be useful for helping to compile 
+# COAWST-3DPBL on other systems.
+
 #
 #
 # Compiling WRF and WW3
