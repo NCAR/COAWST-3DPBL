@@ -1,3 +1,6 @@
+# This is compile script for NLR Kestrel HPC
+# It may be useful for helping to compile on other systems
+#
 #
 # Compiling WRF and WW3
 #
@@ -49,7 +52,6 @@ export MCT_LIBDIR=${MY_ROOT_DIR}/Lib/MCT/lib
 export MCT_INCDIR=${MY_ROOT_DIR}/Lib/MCT/include
 
 - modify the following line, by removing the "slash"
-#export   MY_ROMS_SRC=${MY_ROOT_DIR}/
 export   MY_ROMS_SRC=${MY_ROOT_DIR}
 
 export MY_HEADER_DIR=${MY_PROJECT_DIR}/Projects/<project name>
@@ -98,14 +100,14 @@ however, as Brian mentioned what is missing is just a few
 modifications to the last linking step. 
 That last step is included in the file:
 
-goodcompile.ww3wrf.command
+goodcompile.USE
 
 In this file -lnetcdff is added and the order of linked libraries is
 modified in particular 
 
 So, now all that is left to be done is to execute:
 
-% ./goodcompile.ww3wrf.command
+% ./goodcompile.USE
 
 
 When successful, will get executable ‘coawstM’, along with real.exe, etc.
