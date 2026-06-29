@@ -121,7 +121,7 @@ done
 # Set the CPP option defining the particular application. This will
 # determine the name of the ".h" header file with the application
 # CPP definitions. Also this will activate the switch file for WW3.
-export   COAWST_APPLICATION=SANDY_ONEYEAR
+export   COAWST_APPLICATION=SANDY_WRFONLY
 
 # Set the ROMS_APPLICATION to be the same as the COAWST_APP.
 # Do not change this. We use the COAWST APP for other checks.
@@ -129,7 +129,7 @@ export   ROMS_APPLICATION=${COAWST_APPLICATION}
 
 # Set a local environmental variable to define the path to the directories
 # where all this project's files are kept.
-export   MY_ROOT_DIR=/projects/oracle/erichend/COAWST-3DPBL-2024
+export   MY_ROOT_DIR=/projects/oracle/XXXXXXXXXXXX
 export   MY_PROJECT_DIR=${MY_ROOT_DIR}
 #  BJG 3/13/2013  insert these here for portability
 export MCT_LIBDIR=${MY_ROOT_DIR}/Lib/MCT/lib
@@ -144,7 +144,7 @@ export MCT_INCDIR=${MY_ROOT_DIR}/Lib/MCT/include
 # the latest release and always get an up-to-date customized source on each
 # machine. This script is designed to more easily allow for differing paths
 # to the code and inputs on differing machines.
-export   MY_ROMS_SRC=${MY_ROOT_DIR}
+export   MY_ROMS_SRC=${MY_ROOT_DIR}/
 
 ############################################################################
 # WRF : Needs to have the env variable NETCDF set.
@@ -167,9 +167,8 @@ export   WWATCH_ENV=${COAWST_WW3_DIR}/wwatch.env
 #    This may require nf-config, depending on your system.
 ######export   NETCDF_CONFIG=/usr/bin/nf-config
 # BJG below seems to be needed on Eagle
-#export   NETCDF_CONFIG=/nopt/nrel/apps/netcdf-f/4.5.3-intel/bin/nf-config
+export   NETCDF_CONFIG=/nopt/nrel/apps/netcdf-f/4.5.3-intel/bin/nf-config
 #export   NETCDF_CONFIG=/vortexfs1/apps/impistack-1.0/bin/nf-config
-export NETCDF_CONFIG=/projects/oracle/erichend/COAWST-112923/nf-config
 #
 # 5) WW3_SWITCH_FILE is like cpp options for WW3. You need to create it and
 #    list the name here.  You need to have COAWST listed in the switch file.
