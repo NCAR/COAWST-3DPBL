@@ -1,6 +1,6 @@
 **COAWST-3DPBL**
 
-This is the repository for the Coupled-Ocean-Atmosphere-Wave-Sediment Transport (COAWST) Modeling System modified with the three-dimensional (3D) planetary boundary layer parameterization.
+This is the repository for the Coupled-Ocean-Atmosphere-Wave-Sediment Transport (COAWST) Modeling System modified with the addition of a three-dimensional (3D) planetary boundary layer parameterization.
 
 **Installation**
 
